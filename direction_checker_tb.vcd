@@ -1,0 +1,72 @@
+$date
+	Fri Jul 04 10:50:52 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module direction_checker_tb $end
+$var wire 1 ! has_request_below $end
+$var wire 1 " has_request_above $end
+$var reg 4 # current_floor [3:0] $end
+$var reg 10 $ floor_requests [9:0] $end
+$scope module uut $end
+$var wire 4 % current_floor [3:0] $end
+$var wire 10 & floor_requests [9:0] $end
+$var reg 1 " has_request_above $end
+$var reg 1 ! has_request_below $end
+$var integer 32 ' i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 '
+b0 &
+b101 %
+b0 $
+b101 #
+0"
+0!
+$end
+#10000
+1"
+b1010 '
+b1110000000 $
+b1110000000 &
+#20000
+1!
+b1010 '
+0"
+b11100 $
+b11100 &
+#30000
+1"
+b1010 '
+1!
+b1010010100 $
+b1010010100 &
+#40000
+b1010 '
+1!
+0"
+b10000 $
+b10000 &
+#50000
+b1010 '
+1!
+b111111111 $
+b111111111 &
+b1001 #
+b1001 %
+#60000
+1"
+b1010 '
+0!
+b1111111110 $
+b1111111110 &
+b0 #
+b0 %
+#70000

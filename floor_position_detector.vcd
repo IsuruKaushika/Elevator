@@ -1,0 +1,94 @@
+$date
+	Fri Jul 04 10:56:46 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module floor_position_detector_tb $end
+$var wire 4 ! current_floor [3:0] $end
+$var reg 10 " floor_sensors [9:0] $end
+$scope module uut $end
+$var wire 10 # floor_sensors [9:0] $end
+$var reg 4 $ current_floor [3:0] $end
+$var integer 32 % i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 %
+b0 $
+b1 #
+b1 "
+b0 !
+$end
+#10000
+b1 !
+b1 $
+b1010 %
+b10 "
+b10 #
+#20000
+b1010 %
+b10 !
+b10 $
+b100 "
+b100 #
+#30000
+b1010 %
+b11 !
+b11 $
+b1000 "
+b1000 #
+#40000
+b1010 %
+b100 !
+b100 $
+b10000 "
+b10000 #
+#50000
+b1010 %
+b101 !
+b101 $
+b100000 "
+b100000 #
+#60000
+b1010 %
+b110 !
+b110 $
+b1000000 "
+b1000000 #
+#70000
+b1010 %
+b111 !
+b111 $
+b10000000 "
+b10000000 #
+#80000
+b1010 %
+b1000 !
+b1000 $
+b100000000 "
+b100000000 #
+#90000
+b1010 %
+b1001 !
+b1001 $
+b1000000000 "
+b1000000000 #
+#100000
+b1010 %
+b101 !
+b101 $
+b100100 "
+b100100 #
+#110000
+b1010 %
+b0 !
+b0 $
+b0 "
+b0 #
+#140000

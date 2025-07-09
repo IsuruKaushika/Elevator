@@ -1,0 +1,78 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002b538772ba0 .scope module, "direction_checker" "direction_checker" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "current_floor";
+    .port_info 1 /INPUT 10 "floor_requests";
+    .port_info 2 /OUTPUT 1 "has_request_above";
+    .port_info 3 /OUTPUT 1 "has_request_below";
+P_000002b538773240 .param/l "FLOOR_WIDTH" 0 2 3, +C4<00000000000000000000000000000100>;
+P_000002b538773278 .param/l "NUM_FLOORS" 0 2 2, +C4<00000000000000000000000000001010>;
+o000002b5387a6fb8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000002b5387730c0_0 .net "current_floor", 3 0, o000002b5387a6fb8;  0 drivers
+o000002b5387a6fe8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000002b538772d30_0 .net "floor_requests", 9 0, o000002b5387a6fe8;  0 drivers
+v000002b538772dd0_0 .var "has_request_above", 0 0;
+v000002b538772e70_0 .var "has_request_below", 0 0;
+v000002b53875ba90_0 .var/i "i", 31 0;
+E_000002b5387a6510 .event anyedge, v000002b5387730c0_0, v000002b538772d30_0;
+    .scope S_000002b538772ba0;
+T_0 ;
+    %wait E_000002b5387a6510;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002b538772dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002b538772e70_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002b53875ba90_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000002b53875ba90_0;
+    %cmpi/s 10, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %load/vec4 v000002b5387730c0_0;
+    %pad/u 32;
+    %load/vec4 v000002b53875ba90_0;
+    %cmp/u;
+    %flag_get/vec4 5;
+    %load/vec4 v000002b538772d30_0;
+    %load/vec4 v000002b53875ba90_0;
+    %part/s 1;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002b538772dd0_0, 0, 1;
+T_0.2 ;
+    %load/vec4 v000002b53875ba90_0;
+    %load/vec4 v000002b5387730c0_0;
+    %pad/u 32;
+    %cmp/u;
+    %flag_get/vec4 5;
+    %load/vec4 v000002b538772d30_0;
+    %load/vec4 v000002b53875ba90_0;
+    %part/s 1;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.4, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002b538772e70_0, 0, 1;
+T_0.4 ;
+    %load/vec4 v000002b53875ba90_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002b53875ba90_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "DirectionChecker.v";
